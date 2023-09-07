@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <form id="loginForm" action="">
+                <h1>Guess the password and names</h1>
+                <div class="inputBox">
+                    <input type="text" id="Name" placeholder="Name of my Lover" required>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="LastName" placeholder="her last Name" required>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="UserName" placeholder="Cute Name I gave her" required>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password" placeholder="password please" required>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="button" class="button" onclick="verifyLogin()">Login</button>
+            </form>
+        </div>
+        <script src="function.js"></script>
+        <script>
+            function verifyLogin() {
+                var expectedNames = ["Andani", "andani"];
+                var expectedLastNames = ["Mulaudzi", "mulaudzi"];
+                var expectedUserNames = ["CupCake", "cupcake","Cupcake","Babe","Baby","babe","baby"];
+                var expectedPasswords = ["I love you", "i love u", "I Love You", "I LOVE YOU", "I lOvE YoU"];
+                
+                var enteredName = document.getElementById("Name").value;
+                var enteredLastName = document.getElementById("LastName").value;
+                var enteredUserName = document.getElementById("UserName").value;
+                var enteredPassword = document.getElementById("password").value;
+                
+                if (
+                    expectedNames.includes(enteredName) &&
+                    expectedLastNames.includes(enteredLastName) &&
+                    expectedUserNames.includes(enteredUserName) &&
+                    expectedPasswords.includes(enteredPassword)
+                ) {
+                    // You can redirect the user to another page or perform further actions here.
+                    window.location.href = "http://127.0.0.1:5500/mainpage.HTML#"
+                } else {
+                    alert("Login failed. Please check your credentials.");
+                }
+            }
+        </script>
+    </body>
+</html>
